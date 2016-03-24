@@ -3,12 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>This is my portfolio</title>
+	<link rel="stylesheet" type="text/css" href="{{static('css/pure-min.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{static('css/home.css')}}">
 </head>
 
-<body>
- Something Something
-<a href="{{ static('1-1.jpg') }}">Pure css</a>
-
+<body class="pure-g">
+    <div class="pure-u-1" id="general-info">
+    	<div class="pure-g">
+	    	<div class="pure-u-1-4" id='perfil'>
+	    		<div class="white">
+	    			<img src="{{static('img/perfil.png')}}" alt="Myself's photo">
+	    		</div>
+	    	</div>
+	    	<div class="pure-u-3-4 " id='description'>
+	    		<div class="white">
+	    			<p>I am a programmer from Venezuela, a web and data science entusiast, I learn fast and can overcome any difficulty with my perseverance, I am serious and responsible  with my work. From backend to frontend I surely can get the job done!.</p>
+	    		</div>
+	    	</div>
+    	</div>
+    </div>
+    <div class="pure-u-1">
+    	<button class="button-xlarge pure-button">
+    		My projects
+    	</button>
+    </div>
 </body>
 
 </html>

@@ -1,0 +1,18 @@
+body {
+	padding:40px;
+	background-color: black;
+	background-image: url("../img/dark-geometric.png");
+}
+.button-xlarge {
+            font-size: 125%;
+}
+
+.white{
+	background-color: white;
+	border-style: solid;
+    border-width: 2px;
+    border-color: #00d8ff;
+    width: 80%;
+   	margin:0 auto;
+
+}
