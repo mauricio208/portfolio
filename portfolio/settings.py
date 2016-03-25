@@ -66,6 +66,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'portfolio.wsgi.application'
 
+ALLOWED_HOSTS = ['mauricio208.pythonanywhere.com']
 
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
