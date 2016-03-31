@@ -5,28 +5,58 @@
 	<title>This is my portfolio</title>
 	<link rel="stylesheet" type="text/css" href="{{static('css/pure-min.css')}}">
 	<link rel="stylesheet" type="text/css" href="{{static('css/home.css')}}">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 </head>
 
 <body class="pure-g">
     <div class="pure-u-1" id="general-info">
     	<div class="pure-g">
 	    	<div class="pure-u-1-4" id='perfil'>
-	    		<div class="white">
-	    			<img src="{{static('img/perfil.png')}}" alt="Myself's photo">
+	    		<div class="white center_block">
+	    			<div class="center_inline">
+	    				<img class="center_inline" src="{{static('img/perfil.png')}}" alt="Myself's photo">
+	    			</div>
+	    			<div>
+	    				<h2>Contact me</h2>
+	    				<ul>
+	    					<li><a href="https://mauricio08@gmail.com">mauricio208@gmail.com</a></li>
+	    					<li><a href="https://www.fiverr.com/mauricio208">Fiverr</a></li>
+	    				</ul>
+												
+	    			</div>
 	    		</div>
 	    	</div>
 	    	<div class="pure-u-3-4 " id='description'>
-	    		<div class="white">
-	    			<p>I am a programmer from Venezuela, a web and data science entusiast, I learn fast and can overcome any difficulty with my perseverance, I am serious and responsible  with my work. From backend to frontend I surely can get the job done!.</p>
+	    		<div class="white center_block">
+	    			<div class="menu pure-menu pure-menu-horizontal">
+					    <ul class="pure-menu-list">
+					        <li class="pure-menu-item" id="about"><a href="#" class="pure-menu-link">About</a></li>
+					        <li class="pure-menu-item" id="skills"><a href="#" class="pure-menu-link">Skills</a></li>
+					        <li class="pure-menu-item" id="experience"><a href="#" class="pure-menu-link">Experience</a></li>
+					    </ul>
+					</div>
+	    			<div class="center_block text_container" >
+	    				<p class="">I am a programmer from Venezuela, a web and data science entusiast, I learn fast and I can overcome any difficulty with my perseverance, I am serious and responsible  with my work. From backend to frontend I surely can get the job done!.</p>
+	    				
+	    			</div>
 	    		</div>
 	    	</div>
     	</div>
     </div>
-    <div class="pure-u-1">
+    <div class="pure-u-1 center_inline" >
     	<button class="button-xlarge pure-button">
     		My projects
     	</button>
     </div>
+
+    <script>
+    	function get_from_imei(imei) {
+    		$.get( "/?url=www.iphoneimei.info/?imei=358551051859312", function( data ) {
+			  var result=data;
+			  alert( "Load was performed." );
+			});
+    	}
+    </script>
 </body>
 
 </html>
