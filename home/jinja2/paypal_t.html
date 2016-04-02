@@ -1,0 +1,23 @@
+{% extends "home.html" %}
+{% block general %}
+  <div class="paypal_calc white center_block">
+  	<span><h2>PAYPAL CALC "How much I have to send"</h2></span>
+	{% if error %}
+  			<span class="center_inline"><h5>{{error}}</h5></span>
+  	{% endif %}
+  	<form action="">
+  		
+  		<span>Desired total to send</span><input step="0.0000001" type="number" name="total_a_enviar">
+  		<span>City tax</span><input step="0.0000001" type="number" name="tasa_pais">
+  		<span>Static tax</span><input step="0.0000001" type="number" name="tasa_fija">
+		<br>
+		<br>
+  		<button class="center_inline">How much?!</button>
+  		<br>
+  		<br>
+  		{% if total %}
+  			<span><h2>This much: {{total}}</h2></span>
+  		{% endif %}
+  	</form>
+  </div>
+{% endblock %}

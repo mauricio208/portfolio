@@ -44,19 +44,15 @@
     	</div>
     </div>
     <div class="pure-u-1 center_inline" >
-    	<button class="button-xlarge pure-button">
-    		My projects
-    	</button>
+    	{% block general %}
+    	    <button class="button-xlarge pure-button">
+    			My projects
+    		</button>
+    	{% endblock general %}
+    	
     </div>
 
-    <script>
-    	function get_from_imei(imei) {
-    		$.get( "/?url=www.iphoneimei.info/?imei=358551051859312", function( data ) {
-			  var result=data;
-			  alert( "Load was performed." );
-			});
-    	}
-    </script>
+    
 </body>
 
 </html>
