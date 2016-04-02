@@ -1,15 +1,29 @@
 {% extends "home.html" %}
 {% block general %}
-  <div class="paypal_calc white center_block">
+  <div class="paypal_calc white center_block center_inline pure-u-1">
   	<span><h2>PAYPAL CALC "How much I have to send"</h2></span>
 	{% if error %}
   			<span class="center_inline"><h5>{{error}}</h5></span>
   	{% endif %}
   	<form action="">
   		
-  		<span>Desired total to send</span><input step="0.0000001" type="number" name="total_a_enviar">
-  		<span>City tax</span><input step="0.0000001" type="number" name="tasa_pais">
-  		<span>Static tax</span><input step="0.0000001" type="number" name="tasa_fija">
+  		<div class="pure-g">
+  			<div class="pure-u-1-2">
+  				<span>Desired total to send </span><input step="0.0001" type="number" name="total_a_enviar" value="{{total_a_enviar}}">
+  			</div>
+  			<div class="pure-u-1-2"> 
+				<div class="">
+					<span >Country fee </span><input step="0.0001" min="0" type="number" name="tasa_pais" style="width:10%;" value="{{tasa_pais}}">
+			  		<span >  Fixed fee </span><input step="0.0001" min="0" type="number" name="tasa_fija" style="width:10%;" value="{{tasa_fija}}">
+				</div>
+				<div class="">
+					<br>
+					<a href="https://www.paypal.com/webapps/mpp/ua/useragreement-full#exhibit_A">Paypal fees information</a>
+				</div>
+			</div>
+  		</div>
+		
+  		
 		<br>
 		<br>
   		<button class="center_inline">How much?!</button>
@@ -20,4 +34,5 @@
   		{% endif %}
   	</form>
   </div>
+
 {% endblock %}

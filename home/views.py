@@ -12,6 +12,7 @@ class HomeView(TemplateView):
 
 class PaypalHowmuchView(View):
 	def how_much_send_for(self,total_a_enviar, tasa_pais, tasa_fija) :
+		tasa_pais=tasa_pais/100
 		i = total_a_enviar/(1-tasa_pais)
 		valor_iteracion= lambda x :x-x*(tasa_pais+(tasa_fija/x))
 
@@ -27,11 +28,13 @@ class PaypalHowmuchView(View):
 
 		context={'total':None,'error':None}
 		if tp and total and tf:
-			tp=float(tp)/100
-			context['total']=self.how_much_send_for(float(total),tp, float(tf))
+			context['total']=self.how_much_send_for(float(total),float(tp), float(tf))
 		else:
 			context['error']='You must submit all requred data'
 
+		context['total_a_enviar']=total
+		context['tasa_pais']=tp
+		context['tasa_fija']=tf
 		return render_to_response(template_name='paypal_t.html',context=context)
 
 
