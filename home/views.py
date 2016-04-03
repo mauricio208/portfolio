@@ -12,13 +12,15 @@ class HomeView(TemplateView):
 
 class PaypalHowmuchView(View):
 	def how_much_send_for(self,total_a_enviar, tasa_pais, tasa_fija) :
+		# import pudb; pudb.set_trace()
 		tasa_pais=tasa_pais/100
 		i = total_a_enviar/(1-tasa_pais)
+		error= lambda i: (i-(i*tasa_pais+tasa_fija))-total_a_enviar
 		valor_iteracion= lambda x :x-x*(tasa_pais+(tasa_fija/x))
-
 		while valor_iteracion(i)<total_a_enviar:
-			i+=0.1
+			i+=0.01
 		return i
+
 	
 	def get (self,request):
 		# import pudb; pudb.set_trace()
@@ -28,7 +30,7 @@ class PaypalHowmuchView(View):
 
 		context={'total':None,'error':None}
 		if tp and total and tf:
-			context['total']=self.how_much_send_for(float(total),float(tp), float(tf))
+			context['total']=float('%.2f' %self.how_much_send_for(float(total),float(tp), float(tf)))+0.01
 		else:
 			context['error']='You must submit all requred data'
 
