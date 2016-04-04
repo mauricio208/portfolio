@@ -8,7 +8,7 @@ class HomeView(TemplateView):
     def get_context_data(self, **kwargs):
         context = super(HomeView, self).get_context_data(**kwargs)
         return context
-    
+
 
 class PaypalHowmuchView(View):
 	def how_much_send_for(self,total_a_enviar, tasa_pais, tasa_fija) :
@@ -19,7 +19,7 @@ class PaypalHowmuchView(View):
 		while valor_iteracion(i)<total_a_enviar:
 			i+=0.1
 		return i
-	
+
 	def get (self,request):
 		# import pudb; pudb.set_trace()
 		total=request.GET.get('total_a_enviar',None)
@@ -30,7 +30,7 @@ class PaypalHowmuchView(View):
 		if tp and total and tf:
 			context['total']=self.how_much_send_for(float(total),float(tp), float(tf))
 		else:
-			context['error']='You must submit all requred data'
+			context['error']='You must submit all required data'
 
 		context['total_a_enviar']=total
 		context['tasa_pais']=tp
