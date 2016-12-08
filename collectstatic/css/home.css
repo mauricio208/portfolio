@@ -1,0 +1,39 @@
+body {
+	padding:40px;
+	background-color: black;
+	background-image: url("../img/dark-geometric.png");
+	margin: 0;
+}
+
+.menu{
+	background-color: white;
+	background-image: url("../img/dark-geometric.png");
+}
+.menu .pure-menu-link{
+		color:black;
+	}
+.button-xlarge {
+    font-size: 125%;
+}
+
+.white{
+	background-color: white;
+	border-radius: 10px;
+    width: 80%;
+ }
+
+.center_block{
+	display: block;
+	margin: 0 auto;
+	
+}
+.center_inline{
+	
+	text-align: center;
+	
+}
+.text_container{
+	width: 90%;
+	text-align: justify;
+
+}
