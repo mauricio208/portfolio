@@ -32,6 +32,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'home.apps.HomeConfig',
+    'toreports.apps.ToreportsConfig',
     # 'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -56,9 +57,9 @@ ROOT_URLCONF = 'portfolio.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.jinja2.Jinja2',
-        'DIRS': [
-            os.path.join(BASE_DIR, 'templates/jinja2'),
-        ],
+        # 'DIRS': [
+        #     os.path.join(BASE_DIR, 'templates/jinja2'),
+        # ],
         'APP_DIRS': True,
         'OPTIONS': {'environment':'portfolio.env_jinja2.environment',},
     },
