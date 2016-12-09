@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>T.O. Reports</title>
+	<link rel="stylesheet" type="text/css" href="{{static('css/pure-min.css')}}">
+</head>
+
+<body class="pure-g">
+	{% block general %}
+    <div class="pure-u-1" id="general-info">
+    	<div class="pure-g">
+	    	<div class="pure-u-1-4" id='perfil'>
+
+	    	</div>
+	    	<div class="pure-u-3-4 " id='description'>
+	    		
+	    	</div>
+    	</div>
+    </div>
+    <div class="pure-u-1" >
+    		{% for p in object_list %}
+    		<div class="pure-g">
+    			<div class="pure-u-1-4" id='perfil'>
+    				<button class="button-xlarge pure-button">
+    				{{p.name}}
+    				</button>
+	    		</div>
+    			
+
+    		</div>
+    			
+    		{% endfor %}
+    		<div class="pure-g">
+    			<div class="pure-u-1-4" id='perfil'>
+    				<button class="button-xlarge pure-button" onclick="new_pacient()">
+	    			Add pacient +
+					</button>
+	    		</div>
+	    		<div class="pure-u-1-4" id='new_pacient' style="display:none;">
+		    		<form method="POST">
+		    			<label>Name:</label><input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+		    			<input type="text" name="nombre">
+
+		    			<button class="pure-button"> 
+		    				Save new pacient
+		    			</button>
+		    		</form>
+		    	</div>
+			</div>
+    	    
+
+
+    </div>
+
+    {% endblock general %}
+</body>
+
+ <script src="{{static('js/jquery.min.js')}}"></script>
+ <script src="{{static('js/toreports/base.js')}}"></script> 
+
+</html>
