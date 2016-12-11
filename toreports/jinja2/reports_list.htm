@@ -1,0 +1,5 @@
+<div class="reports_list">
+	{% for report in pacient.reports.all() %}
+		{%include "report.htm"%}
+	{% endfor %}
+</div>

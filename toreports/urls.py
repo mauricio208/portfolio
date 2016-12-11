@@ -17,5 +17,9 @@ from django.conf.urls import url,include
 from toreports.views import PacientListView
 
 urlpatterns = [
-    url(r'toreports$', PacientListView.as_view(), name='pacientlist'),
+    url(r'^$', PacientListView.as_view(), name='pacientlist'),
+    url(r'^ajax_save_pacient$', PacientListView.ajax_save_pacient, name='ajax_save_pacient'),
+    url(r'^ajax_save_report$', PacientListView.ajax_save_report, name='ajax_save_report'),
+    url(r'^ajax_load_reports$', PacientListView.ajax_load_reports, name='ajax_load_reports'),
+
 ]
