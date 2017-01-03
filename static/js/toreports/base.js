@@ -41,3 +41,28 @@ $('#save_report').submit(function (event) {
 			$('#new_pacient').hide();
   		});
 });
+$( document ).ready(function() {
+	var fonts = ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'];
+    var Font = Quill.import('formats/font');
+    Font.whitelist = fonts;
+    Quill.register(Font, true);
+	var options = {
+		 modules: {
+	        // 'formula': true,
+	        'toolbar': [
+	          [{ 'font': fonts }, { 'size': [] }],
+	          [ 'bold', 'italic', 'underline', 'strike' ],
+	          [{ 'color': [] }, { 'background': [] }],
+
+	          [{ 'header': '1' }, { 'header': '2' }, 'blockquote', 'code-block' ],
+	          [{ 'list': 'ordered' }, { 'list': 'bullet'}, { 'indent': '-1' }, { 'indent': '+1' }],
+	          [ 'direction', { 'align': [] }],
+	          [ 'link',],
+	          [ 'clean' ]
+	        ],
+	      },
+			theme: 'snow'
+		};
+	var editor = new Quill('#report_area', options);
+
+});
