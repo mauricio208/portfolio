@@ -7,7 +7,7 @@
 	<link href="{{static('css/quill.snow.css')}}" rel="stylesheet">
 	<link href="{{static('css/quill.core.css')}}" rel="stylesheet">
 </head>
-<body class="pure-g">
+<body>
 	<div class="pure-g" style="text-align:center;">
 		<div class="pure-u-1"> 
 			<h1>TO Reports</h1>
@@ -36,7 +36,7 @@
 				{% endfor %}
 			</div>
 		</div>
-		<div class="pure-u-4-5" >
+		<div class="pure-u-1-5" >
 			<div class="pure-u-1-4" id='new_pacient' style="display:none;background-color:white">
 				<form id="save_pacient" method="POST">
 					<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
@@ -60,14 +60,12 @@
 					<input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
 					<input type="hidden" name="pacient_id" value=''>
 					<label>Date</label>
-					<input type="date" name="date">
+					<input type="text" name="date">
 					<label>Report</label>
 
 					<div id="report_area">
-					  <p>Hello World!</p>
-					  <p>Some initial <strong>bold</strong> text</p>
-					  <p><br></p>
 					</div>
+					<input type="text" id="report" name="report" hidden>
 					<button class="pure-button" > 
 						Save new report
 					</button>
@@ -77,6 +75,9 @@
 			<div id="reports_container">
 				
 			</div>
+		</div>
+		<div class="pure-u-3-5">
+			<div id="show_report"></div>
 		</div>
 	</div>	
 

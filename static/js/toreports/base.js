@@ -1,3 +1,6 @@
+var editor;
+
+
 function new_pacient () {
 	$np=$('#new_pacient')
 	$np.toggle();
@@ -14,12 +17,17 @@ function open_new_report(id){
 function load_reports(id){
  	$.get('ajax_load_reports',"pacient_id="+id)
  		.done(function( data ) {
-    		$('#reports_container').html('');
-			$('#reports_container').append(data);
+			$('#reports_container').html('');
+		 	$('#reports_container').append(data);
 	});
  	$ar=$('#add_report')
 	$ar.show();
 	$ar.attr('onclick', "open_new_report("+id+")");
+}
+
+function show_report(data){
+	n_container = new Quill('#show_report');
+	n_container.setContents(data)
 }
 
 $('#save_pacient').submit(function (event) {
@@ -34,18 +42,19 @@ $('#save_pacient').submit(function (event) {
 
 $('#save_report').submit(function (event) {
 	event.preventDefault();
+	$("#report").val(JSON.stringify(editor.getContents()));
   	var $form = $( this );
  	$.post('ajax_save_report', $form.serialize() )
  		.done(function( data ) {
-    		$('#reports_container').append(data)
+			$('#reports_container').append(data);
 			$('#new_pacient').hide();
   		});
 });
 $( document ).ready(function() {
 	var fonts = ['sofia', 'slabo', 'roboto', 'inconsolata', 'ubuntu'];
-    var Font = Quill.import('formats/font');
-    Font.whitelist = fonts;
-    Quill.register(Font, true);
+	var Font = Quill.import('formats/font');
+	Font.whitelist = fonts;
+	Quill.register(Font, true);
 	var options = {
 		 modules: {
 	        // 'formula': true,
@@ -63,6 +72,6 @@ $( document ).ready(function() {
 	      },
 			theme: 'snow'
 		};
-	var editor = new Quill('#report_area', options);
+	editor = new Quill('#report_area', options);
 
 });

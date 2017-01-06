@@ -21,6 +21,7 @@ class PacientListView(ListView):
             return HttpResponse(pacient_template)
 
     def ajax_save_report(request):
+        import pudb; pu.db
         data=request.POST 
         date=data.get('date')
         text=data.get('report')
